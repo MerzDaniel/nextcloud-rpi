@@ -1,17 +1,16 @@
-version: '2'
+version: '3'
 
 services:
   redis:
     image: redis
     restart: always
 
-
   db:
     image: yobasystems/alpine-mariadb
     restart: always
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
     volumes:
-      - ./svc/mysql:/var/lib/mysql
+      - /media/lacie/cloud/mysql:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
       - MYSQL_DATABASE=$MYSQL_DATABASE
@@ -27,7 +26,7 @@ services:
       - db
       - redis
     volumes:
-      - ./svc/nextcloud:/var/www/html
+      - /media/lacie/cloud/nextcloud:/var/www/html
     environment:
       - MYSQL_HOST=db
       - MYSQL_DATABASE=$MYSQL_DATABASE
