@@ -20,7 +20,7 @@ services:
       - 3306:3306
 
   app:
-    image: nextcloud
+    image: nextcloud:22.2-apache
     restart: always
     ports:
       - $NEXTCLOUD_PORT:80
