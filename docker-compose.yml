@@ -28,7 +28,7 @@ services:
       - db
       - redis
     volumes:
-      - /media/lacie/cloud/nextcloud:/var/www/html
+      - $NEXTCLOUD_DATA_DIR:/var/www/html
     environment:
       - MYSQL_HOST=db
       - MYSQL_DATABASE=$MYSQL_DATABASE
@@ -37,4 +37,7 @@ services:
       - REDIS_HOST=redis
       - NEXTCLOUD_ADMIN_USER=$NEXTCLOUD_ADMIN_USER
       - NEXTCLOUD_ADMIN_PASSWORD=$NEXTCLOUD_ADMIN_PASSWORD
+      - NEXTCLOUD_TRUSTED_DOMAINS=$NEXTCLOUD_TRUSTED_DOMAINS
+      - OVERWRITEHOST=$OVERWRITEHOST
+      - OVERWRITEPROTOCOL=$OVERWRITEPROTOCOL
 
