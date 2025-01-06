@@ -16,11 +16,9 @@ services:
       - MYSQL_DATABASE=$MYSQL_DATABASE
       - MYSQL_USER=$MYSQL_USER
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
-    ports:
-      - 3306:3306
 
   app:
-    image: nextcloud:22.2-apache
+    image: nextcloud:28-apache
     restart: always
     ports:
       - $NEXTCLOUD_PORT:80
