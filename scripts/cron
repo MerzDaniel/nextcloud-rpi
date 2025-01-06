@@ -1,0 +1,4 @@
+#!/bin/sh
+set -e 
+
+docker-compose exec -u www-data app php cron.php

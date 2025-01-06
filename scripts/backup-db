@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e 
+
+(
+. ./.env
+docker compose exec db mysqldump --single-transaction -u root -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE | sudo tee /mnt/data/cloud/nextcloud-backups/dbbak$(date +%F_%H%M%S) > /dev/null
+)

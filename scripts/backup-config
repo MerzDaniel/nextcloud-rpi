@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e 
+
+(
+
+cd /mnt/data/cloud
+d=config$(date +%F_%H%M%S)
+sudo mkdir -p nextcloud-backups/$d
+sudo rsync -Aavx nextcloud/config nextcloud/themes nextcloud-backups/$d
+
+)

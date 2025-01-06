@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e 
+
+usage() (
+  echo 'Usage: maintenance-mode {on|off}'
+)
+
+onoff=$1
+case $onoff in 
+  on|off) ;;
+  *) usage; exit 1;; 
+esac
+
+docker-compose exec -u www-data app php occ maintenance:mode --$onoff
