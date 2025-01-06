@@ -19,6 +19,7 @@ borg create        \
   --stats          \
   --exclude-caches \
   rsync:borg::nextcloud-$d              \
+  /home/docker/git/nextcloud-rpi/.env   \
   /mnt/data/cloud/./db_dump             \
   /mnt/data/cloud/./nextcloud/config    \
   /mnt/data/cloud/./nextcloud/data
